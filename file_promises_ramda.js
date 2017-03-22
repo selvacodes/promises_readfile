@@ -19,7 +19,7 @@ const isEven = x => x % 2 == 0
 
 const lines = R.split('\r\n')
 
-const filterEmptyLines = R.filter(R.compose(R.not, R.isEmpty))
+const rejectEmptyLines = R.filter(R.compose(R.not, R.isEmpty))
 
 const zipValues = R.converge(R.zip , [ R.identity , R.compose(R.range(0), R.length) ])
 
@@ -31,7 +31,7 @@ const changeCase = R.cond([
 const changeCaseOfAllElements = R.map(changeCase)
 
 readFile('./sample.txt').then(lines)
-  .then(filterEmptyLines)
+  .then(rejectEmptyLines)
   .then(zipValues)
   .then(changeCaseOfAllElements)
   .then(console.log)
