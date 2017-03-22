@@ -34,9 +34,21 @@ const changeCaseOfAllElements = arr => arr.map((value, index) => isEven(index) ?
 
 const joinWithNewLine = R.join('\n')
 
-readFile('./sample.txt').then(lines)
+// readFile('./sample.txt').then(lines)
+//     .then(rejectEmptyLines)
+//     .then(changeCaseOfAllElements)
+//     .then(joinWithNewLine)
+//     .then(writeFile('./output.txt'))
+//     .then(console.log)
+
+// Read two files
+Promise.all([readFile('./sample.txt'), readFile('./sample2.txt')])
+    .then(R.map(lines))
+    //.then(R.converge(R.zip, [R.head, R.last]))
+    //.then(R.tap(console.log))
+    .then(R.flatten)
     .then(rejectEmptyLines)
     .then(changeCaseOfAllElements)
     .then(joinWithNewLine)
-    .then(writeFile('./output.txt'))    
+    .then(writeFile('./output.txt'))
     .then(console.log)

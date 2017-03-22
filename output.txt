@@ -1,6 +1,12 @@
 HELLO
-selva
+bye
+SELVA
+this 
 THIS 
-is 
+was
+IS 
+just
 A 
-test
+a 
+TEST
+sample
