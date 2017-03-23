@@ -23,7 +23,7 @@ function readTwoFiles (filename1, filename2 , outputFile) {
     let outputArray = []
     fs.readFile(filename2, 'utf-8', function (err, file2_data) {
       let splittedLines_two = file1_data.split('\n')
-      for (let i = 0; i <= splittedLines_one.length; i++) {
+      for (let i = 0; i <= splittedLines_two.length; i++) {
         if (typeof splittedLines_one[i] == 'string' && splittedLines_one[i] != '') {
           if (i % 2 == 0) {
             outputArray.push(splittedLines_one[i].toUpperCase())
